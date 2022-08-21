@@ -82,7 +82,7 @@ const currentElement = document.querySelector('.current-display');
 
   switch (operation) {
    case'+':
-   computation = previous + current;
+       computation = previous + current;
    
       
       break;
@@ -90,7 +90,7 @@ const currentElement = document.querySelector('.current-display');
    default:
       break;
   }
-  currentOperand = computation;
+  currentOperand =  computation.toString();
   DisplayNumbers();
 
  }
@@ -109,7 +109,7 @@ const currentElement = document.querySelector('.current-display');
    ChooseOperation('*');
  })
  equalsButton.addEventListener('click', ()=>{
-   
+   Compute();
  })
  
 
