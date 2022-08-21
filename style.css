@@ -21,13 +21,19 @@ body{
     height: 100%;
     width: 500px;
     padding:10px;
+    display: flex;
+    flex-direction: column;
     
     position: relative;
+    justify-content: flex-end;
+    
+
+    
 
 }
 .display{
 
-    height: 20%;
+    height: 30%;
     width: 100%;
     text-align: right ;
     padding: 20px;
@@ -40,12 +46,22 @@ body{
 
 
 }
+.previous-display{
+    opacity: 0.5;
+    font-size: 50px;
+    overflow: hidden;
+
+}
 .buttons-container{
+    
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 7px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
     border: 1px solid blue;
+    
+    height:70%;
+    position: relative
 
 
 
@@ -58,10 +74,11 @@ body{
     cursor: pointer;
     display: flex;
     font-size: 45px;
-    height: 100px;
-    width: 100px;
+    height: 87px;
+    width: 87px;
     justify-content: center;
     transition: filter .3s;
+    position: relative
 
 }
 .function{
