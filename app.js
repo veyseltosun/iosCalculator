@@ -72,7 +72,29 @@ const currentElement = document.querySelector('.current-display');
     currentOperand ='';
     DisplayNumbers();
 
+
  }
+
+ function Compute() {
+   let computation;
+   const previous = parseFloat(previousOperand);
+   const current = parseFloat(currentElement);
+
+  switch (operation) {
+   case'+':
+   computation = previous + current;
+   
+      
+      break;
+  
+   default:
+      break;
+  }
+  currentOperand = computation;
+  DisplayNumbers();
+
+ }
+
  // add event listener to operator buttons
  additionButton.addEventListener('click', ()=>{
     ChooseOperation('+');
@@ -87,7 +109,7 @@ const currentElement = document.querySelector('.current-display');
    ChooseOperation('*');
  })
  equalsButton.addEventListener('click', ()=>{
-   ChooseOperation('=');
+   
  })
  
 
