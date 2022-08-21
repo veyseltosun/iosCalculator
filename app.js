@@ -78,16 +78,16 @@ const currentElement = document.querySelector('.current-display');
     ChooseOperation('+');
  })
  subtractionButton.addEventListener('click', ()=>{
-    console.log('subtractionButton');
+   ChooseOperation('-');
  })
  divisionButton.addEventListener('click', ()=>{
-    console.log('divisionButton');
+   ChooseOperation('/');
  });
  multiplicationButton.addEventListener('click', ()=>{
-    console.log('multiplicationButton');
+   ChooseOperation('*');
  })
  equalsButton.addEventListener('click', ()=>{
-    console.log('equalsnButton');
+   ChooseOperation('=');
  })
  
 
