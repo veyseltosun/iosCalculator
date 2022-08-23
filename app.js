@@ -77,12 +77,17 @@ const currentElement = document.querySelector('.current-display');
 
  function Compute() {
    let computation;
-   const previous = parseFloat(previousOperand);
-   const current = parseFloat(currentElement);
+   const previous = parseFloat(previousOperand.valueOf());
+   console.log(previous, 'pre');
+   console.log(previousOperand.valueOf())
+   const current = parseFloat(currentOperand.valueOf());
+   console.log(currentElement.valueOf())
+   console.log(current, 'curr');
 
   switch (operation) {
    case'+':
        computation = previous + current;
+       console.log('computatıon', computation)
    
       
       break;
@@ -90,7 +95,11 @@ const currentElement = document.querySelector('.current-display');
    default:
       break;
   }
-  currentOperand =  computation.toString();
+  currentOperand =  computation;
+  console.log( "currenopt",currentOperand)
+  previousOperand = '';
+
+
   DisplayNumbers();
 
  }
