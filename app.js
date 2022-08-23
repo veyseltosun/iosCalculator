@@ -63,9 +63,21 @@ const currentElement = document.querySelector('.current-display');
  }
 
  function AppendNumber(number){
-    console.log('number', number);
+   if(number === '.' && currentOperand.includes('.')) return;
+   if(number === 0 && currentOperand === '0') return;
+    
+
+
+
     currentOperand = currentOperand.toString() + number.toString();
+   
+   
+   
+   
     DisplayNumbers();
+
+
+
 
 
 
@@ -75,6 +87,7 @@ const currentElement = document.querySelector('.current-display');
     operation = selectedOperation;
     previousOperand = currentOperand;
     currentOperand ='';
+    acButton.innerHTML='AC';
     DisplayNumbers();
 
 
@@ -119,25 +132,37 @@ const currentElement = document.querySelector('.current-display');
       break;
   }
   currentOperand =  computation;
+  computation= computation.toString()
+  
   operation = undefined;
   
   previousOperand = '';
 
+  acButton.innerHTML='C'
+
 
   DisplayNumbers();
+  
 
  }
 
  function AllClear() {
-   currentOperand='';
-   previousOperand='';
-   operation = undefined;
+   if(!previousOperand){
+      currentOperand = currentOperand.slice(0, currentOperand.length - 1)
+   }else{
+      currentOperand='';
+      previousOperand='';
+      operation = undefined;
+      acButton.innerHTML='C'
+      
+   }
    DisplayNumbers();
  }
  function PlusMinus(){
    currentOperand = currentOperand * -1;
    DisplayNumbers();
  }
+
 
  // add event listener to operator buttons
  additionButton.addEventListener('click', ()=>{
@@ -155,6 +180,11 @@ const currentElement = document.querySelector('.current-display');
  equalsButton.addEventListener('click', ()=>{
    Compute();
  })
+
+ function Percent() {
+   currentOperand = currentOperand / 100;
+   DisplayNumbers();
+ }
  
 
  // add event listener to top buttons
@@ -166,7 +196,7 @@ const currentElement = document.querySelector('.current-display');
    PlusMinus();
  })
  percentButton.addEventListener('click', () => {
-   console.log('percentButton')
+   Percent();
  })
  // add event listener to number buttons
  for (let i=0; i< numbersArray.length; i++){
@@ -183,3 +213,6 @@ const currentElement = document.querySelector('.current-display');
     })
 
  }
+ decimalButton.addEventListener('click', () =>{
+   AppendNumber('.')
+ })
