@@ -44,6 +44,7 @@ const currentElement = document.querySelector('.current-display');
  let previousOperand = '';
  let currentOperand = '';
  let operation = undefined;
+ let temporaryOperand = '';
 
 
 
@@ -65,6 +66,7 @@ const currentElement = document.querySelector('.current-display');
  function AppendNumber(number){
    if(number === '.' && currentOperand.includes('.')) return;
    if(number === 0 && currentOperand === '0') return;
+   if(currentOperand.length > 7) return;
     
 
 
@@ -84,6 +86,14 @@ const currentElement = document.querySelector('.current-display');
  }
 
  function ChooseOperation(selectedOperation) {
+   if(temporaryOperand){
+      previousOperand = temporaryOperand.toString();
+      currentOperand='';
+      temporaryOperand='';
+      operation = selectedOperation;
+      DisplayNumbers();
+      return;
+   }
     operation = selectedOperation;
     previousOperand = currentOperand;
     currentOperand ='';
@@ -98,6 +108,9 @@ const currentElement = document.querySelector('.current-display');
    const previous = parseFloat(previousOperand.valueOf());
    
    const current = parseFloat(currentOperand.valueOf());
+
+   if(!operation) return;
+   if(isNaN(previous) || isNaN(current)) return;
   
    
 
@@ -132,16 +145,19 @@ const currentElement = document.querySelector('.current-display');
       break;
   }
   currentOperand =  computation;
-  computation= computation.toString()
+
+  previousOperand = '';
   
   operation = undefined;
   
-  previousOperand = '';
 
-  acButton.innerHTML='C'
+ 
 
 
   DisplayNumbers();
+  temporaryOperand = currentOperand;
+  currentOperand = '';
+
   
 
  }
@@ -208,7 +224,8 @@ const currentElement = document.querySelector('.current-display');
         
         // console.log(number.textContent)
         // DisplayNumbers();
-        AppendNumber(i)
+        AppendNumber(i);
+        temporaryOperand = '';
 
     })
 

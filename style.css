@@ -41,7 +41,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
 
 
@@ -58,7 +58,7 @@ body{
     grid-gap: 7px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     
     height:70%;
     position: relative
