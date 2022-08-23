@@ -51,7 +51,12 @@ const currentElement = document.querySelector('.current-display');
 
  // functions
  function DisplayNumbers() {
-    previousElement.innerHTML= previousOperand;
+   if(operation){
+      previousElement.innerHTML= `${previousOperand} ${operation}`;
+
+   }else {
+      previousElement.innerHTML=previousOperand;
+   }
     currentElement.innerHTML= currentOperand;
 
 
@@ -102,7 +107,7 @@ const currentElement = document.querySelector('.current-display');
    
       
       break;
-   case'/':
+   case'÷':
        computation = previous / current;
        
    
@@ -114,12 +119,20 @@ const currentElement = document.querySelector('.current-display');
       break;
   }
   currentOperand =  computation;
-  console.log( "currenopt",currentOperand)
+  operation = undefined;
+  
   previousOperand = '';
 
 
   DisplayNumbers();
 
+ }
+
+ function AllClear() {
+   currentOperand='';
+   previousOperand='';
+   operation = undefined;
+   DisplayNumbers();
  }
 
  // add event listener to operator buttons
@@ -130,7 +143,7 @@ const currentElement = document.querySelector('.current-display');
    ChooseOperation('-');
  })
  divisionButton.addEventListener('click', ()=>{
-   ChooseOperation('/');
+   ChooseOperation('÷');
  });
  multiplicationButton.addEventListener('click', ()=>{
    ChooseOperation('*');
@@ -141,6 +154,16 @@ const currentElement = document.querySelector('.current-display');
  
 
  // add event listener to top buttons
+
+ acButton.addEventListener('click', () => {
+   AllClear();
+ })
+ pmButton.addEventListener('click', () => {
+   console.log('pmButton')
+ })
+ percentButton.addEventListener('click', () => {
+   console.log('percentButton')
+ })
  // add event listener to number buttons
  for (let i=0; i< numbersArray.length; i++){
     const number = numbersArray[i];
