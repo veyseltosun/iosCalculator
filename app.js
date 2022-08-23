@@ -105,12 +105,14 @@ const currentElement = document.querySelector('.current-display');
 
  function Compute() {
    let computation;
-   const previous = parseFloat(previousOperand.valueOf());
+   const previous = parseFloat(previousOperand);
    
-   const current = parseFloat(currentOperand.valueOf());
+   const current = parseFloat(currentOperand);
 
-   if(!operation) return;
    if(isNaN(previous) || isNaN(current)) return;
+   console.log(isNaN(previous), isNaN(current));
+   console.log(typeof(previous))
+   if(!operation) return;
   
    
 
@@ -144,6 +146,7 @@ const currentElement = document.querySelector('.current-display');
    default:
       break;
   }
+  if(isNaN(computation)) return;
   currentOperand =  computation;
 
   previousOperand = '';
