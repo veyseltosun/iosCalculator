@@ -134,6 +134,10 @@ const currentElement = document.querySelector('.current-display');
    operation = undefined;
    DisplayNumbers();
  }
+ function PlusMinus(){
+   currentOperand = currentOperand * -1;
+   DisplayNumbers();
+ }
 
  // add event listener to operator buttons
  additionButton.addEventListener('click', ()=>{
@@ -159,7 +163,7 @@ const currentElement = document.querySelector('.current-display');
    AllClear();
  })
  pmButton.addEventListener('click', () => {
-   console.log('pmButton')
+   PlusMinus();
  })
  percentButton.addEventListener('click', () => {
    console.log('percentButton')
