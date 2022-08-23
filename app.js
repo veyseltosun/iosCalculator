@@ -101,7 +101,7 @@ const currentElement = document.querySelector('.current-display');
    
       
       break;
-   case'x':
+   case'*':
        computation = previous * current;
        
    
